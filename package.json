@@ -15,8 +15,7 @@
 		"db:start": "docker-compose up",
 		"prisma:generate": "prisma generate",
 		"prisma:migrate-dev": "prisma migrate dev",
-		"prisma:migrate-prod": "prisma migrate deploy",
-		"postversion": "git push && git push --tags"
+		"prisma:migrate-prod": "prisma migrate deploy"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.3.1",
