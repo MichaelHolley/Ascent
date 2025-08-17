@@ -19,7 +19,7 @@
 	import { downloadBlob } from '$lib/utils/file';
 
 	const { data } = $props<{ data: PageData }>();
-	let deleteModal: HTMLDialogElement;
+	let deleteHabitModal: HTMLDialogElement | null;
 
 	const today = dayjs().format('YYYY-MM-DD');
 
@@ -141,7 +141,7 @@
 			</a>
 		</li>
 		<li>
-			<button class="btn btn-ghost btn-sm btn-block" onclick={deleteModal?.showModal}>
+			<button class="btn btn-ghost btn-sm btn-block" onclick={() => deleteHabitModal?.showModal()}>
 				<div class="flex w-full flex-row items-center gap-1 text-start">
 					<Icon icon={ICON_MAP.delete} class="text-base" />
 					Delete
@@ -196,7 +196,11 @@
 	</CardComponent>
 {/if}
 
-<dialog id="delete_modal" bind:this={deleteModal} class="modal modal-bottom sm:modal-middle">
+<dialog
+	id="delete_habit_modal"
+	bind:this={deleteHabitModal}
+	class="modal modal-bottom sm:modal-middle"
+>
 	<div class="modal-box">
 		<form method="dialog">
 			<button class="btn btn-circle btn-ghost btn-sm absolute top-2 right-2">✕</button>
