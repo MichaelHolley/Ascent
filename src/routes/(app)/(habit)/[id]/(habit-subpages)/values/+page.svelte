@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { page } from '$app/state';
 	import { ICON_MAP } from '$lib/components/icons';
 	import NavigateBackButtonComponent from '$lib/components/NavigateBackButtonComponent.svelte';
 	import { downloadBlob } from '$lib/utils/file';
@@ -9,7 +8,7 @@
 	import dayjs from 'dayjs';
 	import type { PageData } from './$types';
 
-	const { data } = $props<{ data: PageData }>();
+	const { data, params } = $props<{ data: PageData }>();
 
 	let currentMonth = $state<dayjs.Dayjs>(dayjs().startOf('month'));
 
@@ -42,7 +41,7 @@
 </script>
 
 <div class="mb-3">
-	<NavigateBackButtonComponent backUrl="/{page.params.id}" />
+	<NavigateBackButtonComponent backUrl="/{params.id}" />
 </div>
 
 <div class="mb-3 flex flex-row items-center justify-between gap-4">

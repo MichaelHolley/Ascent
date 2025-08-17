@@ -3,16 +3,15 @@
 	import NavigateBackButtonComponent from '$lib/components/NavigateBackButtonComponent.svelte';
 	import { defaultHandleSubmit } from '$lib/utils/form';
 	import type { PageData } from './$types';
-	import { page } from '$app/state';
 
-	const { data } = $props<{ data: PageData }>();
+	const { data, params } = $props<{ data: PageData }>();
 
 	let title = $state(data.habit.title);
 	let description = $state(data.habit.description);
 </script>
 
 <div class="mb-3">
-	<NavigateBackButtonComponent backUrl="/{page.params.id}" />
+	<NavigateBackButtonComponent backUrl="/{params.id}" />
 </div>
 
 <div class="max-w-md">

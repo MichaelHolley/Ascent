@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { page } from '$app/state';
 	import NavigateBackButtonComponent from '$lib/components/NavigateBackButtonComponent.svelte';
 	import { defaultHandleSubmit } from '$lib/utils/form';
+
+	const { params } = $props();
 
 	let files = $state<FileList | null | undefined>(null);
 
@@ -10,7 +11,7 @@
 </script>
 
 <div class="mb-3">
-	<NavigateBackButtonComponent backUrl="/{page.params.id}/values" />
+	<NavigateBackButtonComponent backUrl="/{params.id}/values" />
 </div>
 
 <div class="mb-3 flex flex-row items-center justify-start gap-4">
