@@ -5,20 +5,20 @@ import { getHabitForUser, updateDates } from '$lib/server/habit';
 export const actions: Actions = {
 	import: async (event) => {
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 		if (habit === null) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const formData = await event.request.formData();
 
 		const file = formData.get('valuesFile') as File | null;
 		if (!file) {
-			return redirect(302, `/${event.params.id}/values`);
+			return redirect(303, `/${event.params.id}/values`);
 		}
 
 		const fileContent = await file.text();
@@ -28,6 +28,6 @@ export const actions: Actions = {
 
 		await updateDates(event.params.id, event.locals.user.id, uniqueDates);
 
-		return redirect(302, `/${event.params.id}/values`);
+		return redirect(303, `/${event.params.id}/values`);
 	}
 };

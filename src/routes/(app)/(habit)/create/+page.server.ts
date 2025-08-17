@@ -34,11 +34,11 @@ export const actions: Actions = {
 		const description = formData.get('description');
 
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const habit = await createHabit(title as string, event.locals.user.id, description as string);
 
-		return redirect(302, `/${habit.id}`);
+		return redirect(303, `/${habit.id}`);
 	}
 };

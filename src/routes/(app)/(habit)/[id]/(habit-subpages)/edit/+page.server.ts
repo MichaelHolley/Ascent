@@ -4,13 +4,13 @@ import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	const habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 	if (habit === null) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	return { habit: habit };
@@ -23,7 +23,7 @@ export const actions: Actions = {
 		const description = formData.get('description');
 
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const habit = await updateHabit(
@@ -33,6 +33,6 @@ export const actions: Actions = {
 			description as string
 		);
 
-		return redirect(302, `/${habit.id}`);
+		return redirect(303, `/${habit.id}`);
 	}
 };

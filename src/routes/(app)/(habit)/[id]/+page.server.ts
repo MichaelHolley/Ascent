@@ -5,13 +5,13 @@ import dayjs from 'dayjs';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	const habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 	if (habit === null) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	return { habit: habit };
@@ -23,7 +23,7 @@ export const actions: Actions = {
 		const date = formData.get('date') as string;
 
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const habit = await getHabitForUser(event.params.id, event.locals.user.id);
@@ -41,16 +41,16 @@ export const actions: Actions = {
 	},
 	delete: async (event) => {
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		await deleteHabit(event.params.id, event.locals.user.id);
 
-		return redirect(302, `/`);
+		return redirect(303, `/`);
 	},
 	addToday: async (event) => {
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const today = dayjs();

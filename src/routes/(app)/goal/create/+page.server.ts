@@ -63,7 +63,7 @@ export const actions: Actions = {
 		const target = parseInt(formData.get('target') as string);
 
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const goal = await createGoal(
@@ -73,6 +73,6 @@ export const actions: Actions = {
 			description as string
 		);
 
-		return redirect(302, `/${goal.id}`);
+		return redirect(303, `/${goal.id}`);
 	}
 };

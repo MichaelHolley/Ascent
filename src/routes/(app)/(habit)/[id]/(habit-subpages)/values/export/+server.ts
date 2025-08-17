@@ -4,13 +4,13 @@ import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async (event) => {
 	if (!event.locals.user) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	const habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 	if (habit === null) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	const dates = habit.dates || [];

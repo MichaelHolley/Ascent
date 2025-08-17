@@ -4,13 +4,13 @@ import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	const habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 	if (habit === null) {
-		return redirect(302, '/');
+		return redirect(303, '/');
 	}
 
 	return { habit: { ...habit, dates: habit.dates.reverse() } };
@@ -19,20 +19,20 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	delete: async (event) => {
 		if (!event.locals.user) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		let habit = await getHabitForUser(event.params.id, event.locals.user.id);
 
 		if (habit === null) {
-			return redirect(302, '/');
+			return redirect(303, '/');
 		}
 
 		const formData = await event.request.formData();
 		const date = formData.get('date') as string;
 
 		if (!date) {
-			return redirect(302, `/${event.params.id}/values`);
+			return redirect(303, `/${event.params.id}/values`);
 		}
 
 		if (habit && habit.dates && typeof habit.dates === 'object' && Array.isArray(habit.dates)) {
@@ -45,6 +45,6 @@ export const actions: Actions = {
 			}
 		}
 
-		redirect(302, `/${event.params.id}/values`);
+		redirect(303, `/${event.params.id}/values`);
 	}
 };

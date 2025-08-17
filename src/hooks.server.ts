@@ -9,7 +9,7 @@ const handleAuth: Handle = async ({ event, resolve }) => {
 
 	const sessionToken = event.cookies.get(auth.sessionCookieName);
 	if (!sessionToken) {
-		return redirect(302, '/auth');
+		return redirect(303, '/auth');
 	}
 
 	const { session, user } = await auth.validateSessionToken(sessionToken);
