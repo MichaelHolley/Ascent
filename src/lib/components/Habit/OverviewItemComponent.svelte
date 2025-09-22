@@ -17,7 +17,7 @@
 		},
 		600,
 		{
-			successMessage: 'Today has been added!'
+			successMessage: `${habit.title}: Today added`
 		}
 	);
 </script>

@@ -68,7 +68,7 @@
 		},
 		600,
 		{
-			successMessage: 'Today has been added!'
+			successMessage: `${data.habit.title}: Today added`
 		}
 	);
 
