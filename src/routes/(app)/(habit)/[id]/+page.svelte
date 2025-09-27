@@ -87,7 +87,7 @@
 
 <div>
 	<div class="mb-3"><NavigateBackButton backUrl="/" /></div>
-	<div class="mb-1 grid grid-cols-2">
+	<div class="mb-1 grid gap-2" style="grid-template-columns: 1fr auto;">
 		<div>
 			<h2 class="text-3xl">{data.habit?.title}</h2>
 		</div>
