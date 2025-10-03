@@ -6,6 +6,7 @@ RUN npm install -g pnpm
 # ---- Dependencies ----
 FROM base AS dependencies
 COPY package.json pnpm-lock.yaml ./
+COPY prisma ./prisma
 RUN pnpm install --frozen-lockfile
 
 # ---- Build ----
@@ -17,6 +18,7 @@ RUN pnpm build
 # ---- Production Dependencies ----
 FROM base AS prod-dependencies
 COPY package.json pnpm-lock.yaml ./
+COPY prisma ./prisma
 RUN pnpm install --frozen-lockfile --prod
 
 # ---- Production ----
