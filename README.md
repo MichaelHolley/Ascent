@@ -1,6 +1,6 @@
 # Ascent
 
-[![Build & Publish](https://github.com/MichaelHolley/Ascent/actions/workflows/nixpacks_publish.yml/badge.svg?branch=main)](https://github.com/MichaelHolley/Ascent/actions/workflows/nixpacks_publish.yml)
+[![Build & Publish](https://github.com/MichaelHolley/Ascent/actions/workflows/docker_publish.yml/badge.svg?branch=main)](https://github.com/MichaelHolley/Ascent/actions/workflows/docker_publish.yml)
 
 A simple and intuitive app to track, build, and maintain your habits for a better you!
 
