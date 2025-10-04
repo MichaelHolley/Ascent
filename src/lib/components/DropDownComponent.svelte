@@ -10,12 +10,12 @@
 </script>
 
 <button
-	class="btn btn-ghost btn-xs px-1"
+	class="btn btn-xs px-1"
 	aria-label="Options"
 	style="anchor-name:--anchor-{id}"
 	popovertarget={popoverId}
 >
-	<Icon icon={ICON_MAP.more} />
+	<Icon icon={ICON_MAP.more} class="text-xl" />
 </button>
 
 <ul
