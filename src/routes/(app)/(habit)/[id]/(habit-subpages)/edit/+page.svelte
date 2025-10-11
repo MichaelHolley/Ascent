@@ -2,9 +2,8 @@
 	import { enhance } from '$app/forms';
 	import NavigateBackButtonComponent from '$lib/components/NavigateBackButtonComponent.svelte';
 	import { defaultHandleSubmit } from '$lib/utils/form';
-	import type { PageData } from './$types';
 
-	const { data, params } = $props<{ data: PageData }>();
+	const { data, params } = $props();
 
 	let title = $state(data.habit.title);
 	let description = $state(data.habit.description);

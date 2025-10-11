@@ -7,6 +7,7 @@
 	import StatComponent from '$lib/components/Habit/StatComponent.svelte';
 	import { ICON_MAP } from '$lib/components/icons';
 	import NavigateBackButton from '$lib/components/NavigateBackButtonComponent.svelte';
+	import { downloadBlob } from '$lib/utils/file';
 	import {
 		createFlashHandler,
 		defaultHandleDeleteSubmit,
@@ -15,10 +16,8 @@
 	import { getHabitStats, type StatItem } from '$lib/utils/stats';
 	import Icon from '@iconify/svelte';
 	import dayjs from 'dayjs';
-	import type { PageData } from './$types';
-	import { downloadBlob } from '$lib/utils/file';
 
-	const { data } = $props<{ data: PageData }>();
+	const { data } = $props();
 	let deleteHabitModal: HTMLDialogElement | null;
 
 	const today = dayjs().format('YYYY-MM-DD');

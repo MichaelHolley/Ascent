@@ -6,9 +6,8 @@
 	import { defaultHandleDeleteSubmit } from '$lib/utils/form';
 	import Icon from '@iconify/svelte';
 	import dayjs from 'dayjs';
-	import type { PageData } from './$types';
 
-	const { data, params } = $props<{ data: PageData }>();
+	const { data, params } = $props();
 
 	let currentMonth = $state<dayjs.Dayjs>(dayjs().startOf('month'));
 

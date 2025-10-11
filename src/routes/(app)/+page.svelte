@@ -5,9 +5,8 @@
 	import { ICON_MAP } from '$lib/components/icons';
 	import Icon from '@iconify/svelte';
 	import type { Goal } from '@prisma/client';
-	import type { PageServerData } from './$types';
 
-	const { data } = $props<{ data: PageServerData }>();
+	const { data } = $props();
 	const visibleGoals = $derived(data.goals.filter((g: Goal) => !g.complete));
 </script>
 

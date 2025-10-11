@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { defaultHandleSubmit } from '$lib/utils/form';
-	import type { PageData } from './$types';
 
-	const { data } = $props<{ data: PageData }>();
+	const { data } = $props();
 
 	let title = $state('');
 	let description = $state('');
