@@ -15,7 +15,8 @@
 		"db:start": "docker-compose up",
 		"prisma:generate": "prisma generate",
 		"prisma:migrate-dev": "prisma migrate dev",
-		"prisma:migrate-prod": "prisma migrate deploy"
+		"prisma:migrate-prod": "prisma migrate deploy",
+		"release": "release-it"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -32,6 +33,7 @@
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.6.14",
+		"release-it": "^19.0.5",
 		"svelte": "^5.40.1",
 		"svelte-check": "^4.3.2",
 		"tailwindcss": "^4.1.13",
