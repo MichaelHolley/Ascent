@@ -77,8 +77,13 @@
 					<td class="text-base-content/25">{i + 1}</td>
 					<td>{date.format('DD MMM YYYY')}</td>
 					<td>{date.format('dddd')}</td>
-					<td>
-						<form method="POST" action="?/delete" use:enhance={defaultHandleDeleteSubmit}>
+					<td class="pr-0">
+						<form
+							method="POST"
+							action="?/delete"
+							use:enhance={defaultHandleDeleteSubmit}
+							class="flex flex-row justify-end"
+						>
 							<input type="hidden" name="date" value={date.format('YYYY-MM-DD')} />
 							<button class="btn btn-error btn-xs" type="submit">Delete</button>
 						</form>
